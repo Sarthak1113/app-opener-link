@@ -22,5 +22,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/guides/why-social-media-links-open-in-app-browser`,
+      lastModified: new Date("2026-11-24"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
   ];
 }

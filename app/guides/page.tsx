@@ -41,6 +41,15 @@ const GUIDES: GuideItem[] = [
     readingTime: "5 min read",
     tags: ["Deep Linking", "Mobile Apps", "Smart Links", "Tutorial"],
   },
+  {
+    slug: "why-social-media-links-open-in-app-browser",
+    title: "Why Instagram, TikTok and Facebook Links Open Inside an In-App Browser",
+    description:
+      "Understand why Instagram, TikTok, Facebook and other apps open links in embedded browsers, and learn practical ways to improve the mobile app handoff.",
+    publishedAt: "November 24, 2026",
+    readingTime: "4 min read",
+    tags: ["In-App Browser", "Social Media", "Deep Linking", "Mobile Web"],
+  },
 ];
 
 export default function GuidesIndexPage() {
@@ -49,14 +58,14 @@ export default function GuidesIndexPage() {
       <Navbar />
 
       <main id="main-content" className="flex-1 py-10 sm:py-16">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
           {/* Breadcrumbs */}
           <div className="mb-8">
             <Breadcrumbs items={[{ label: "Guides" }]} />
           </div>
 
-          {/* Section Header */}
-          <div className="max-w-3xl mb-12">
+          {/* Section Header: Centered */}
+          <div className="max-w-3xl mx-auto text-center mb-12">
             <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 mb-3">
               <BookOpen className="h-3.5 w-3.5" aria-hidden="true" />
               <span>Knowledge Base &amp; Tutorials</span>
@@ -64,7 +73,7 @@ export default function GuidesIndexPage() {
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 font-heading leading-tight">
               Mobile Deep Linking &amp; Smart Link Guides
             </h1>
-            <p className="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed">
+            <p className="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
               In-depth technical guides to help creators, marketers, and developers bypass in-app browser login walls, master mobile URL schemes, and deliver seamless native mobile experiences.
             </p>
           </div>

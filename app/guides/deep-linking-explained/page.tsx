@@ -118,7 +118,7 @@ export default function DeepLinkingExplainedPage() {
       <Navbar />
 
       <main id="main-content" className="flex-1 py-10 sm:py-16">
-        <article className="mx-auto max-w-3xl px-4 sm:px-6">
+        <article className="mx-auto max-w-4xl px-4 sm:px-6">
           {/* Breadcrumbs */}
           <div className="mb-8">
             <Breadcrumbs
@@ -382,35 +382,29 @@ export default function DeepLinkingExplainedPage() {
               </p>
             </section>
 
-            {/* Suggested Internal Links */}
-            <section className="pt-8 border-t border-slate-200 not-prose">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3 font-heading">
-                Suggested Internal Links
-              </h3>
-              <div className="flex flex-wrap gap-2.5">
-                <Link
-                  href="/#generator"
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3.5 py-2 text-xs font-semibold text-slate-700 hover:text-blue-600 hover:border-blue-300 transition-colors shadow-2xs"
-                >
-                  <Zap className="h-3.5 w-3.5 text-blue-600" aria-hidden="true" />
-                  <span>App opener link generator</span>
-                </Link>
-                <Link
-                  href="/#how-it-works"
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3.5 py-2 text-xs font-semibold text-slate-700 hover:text-blue-600 hover:border-blue-300 transition-colors shadow-2xs"
-                >
-                  <ExternalLink className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
-                  <span>How to create smart QR codes</span>
-                </Link>
-                <Link
-                  href="/#faq"
-                  className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3.5 py-2 text-xs font-semibold text-slate-700 hover:text-blue-600 hover:border-blue-300 transition-colors shadow-2xs"
-                >
-                  <ShieldAlert className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
-                  <span>Troubleshooting links that do not open apps</span>
-                </Link>
+            {/* High-Intent Conversion Funnel Box */}
+            <div className="mt-12 rounded-2xl border border-blue-200 bg-gradient-to-br from-blue-50/80 via-white to-blue-50/40 p-6 sm:p-8 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 not-prose">
+              <div className="max-w-xl">
+                <div className="flex items-center gap-2 mb-2 text-blue-700 text-xs font-bold uppercase tracking-wider">
+                  <Zap className="h-4 w-4 fill-current" aria-hidden="true" />
+                  <span>Try AppOpener Free</span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight font-heading">
+                  Ready to create your first smart app-opening link?
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+                  Paste any YouTube, Instagram, Spotify, or TikTok URL to generate a universal deep link that routes visitors directly into native mobile apps.
+                </p>
               </div>
-            </section>
+
+              <Link
+                href="/#generator"
+                className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-2.5 text-xs font-semibold text-white shadow-xs hover:bg-blue-700 transition-all shrink-0 active:scale-[0.96]"
+              >
+                <span>Generate smart link</span>
+                <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+              </Link>
+            </div>
           </div>
         </article>
       </main>
