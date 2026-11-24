@@ -38,6 +38,9 @@ export function Footer() {
             <Link href="/guides" className="hover:text-blue-600 transition-colors">
               Guides
             </Link>
+            <Link href="/about" className="hover:text-blue-600 transition-colors">
+              About
+            </Link>
             <a href="/#faq" className="hover:text-blue-600 transition-colors">
               FAQ
             </a>

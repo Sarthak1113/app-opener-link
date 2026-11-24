@@ -13,6 +13,11 @@ const nextConfig = {
         destination: "/guides/why-social-media-links-open-in-app-browser",
         permanent: true,
       },
+      {
+        source: "/about-us",
+        destination: "/about",
+        permanent: true,
+      },
     ];
   },
 };
