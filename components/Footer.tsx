@@ -50,13 +50,7 @@ export function Footer() {
         {/* Bottom Bar: Center aligned 2026 AppOpener */}
         <div className="pt-6 text-center">
           <p className="text-xs text-slate-500">
-            © {new Date().getFullYear()} AppOpener. All rights reserved. •{" "}
-            <Link
-              href="/privacy"
-              className="hover:text-blue-600 transition-colors underline-offset-2 hover:underline"
-            >
-              Privacy Policy
-            </Link>
+            © {new Date().getFullYear()} AppOpener. All rights reserved.
           </p>
         </div>
       </div>
