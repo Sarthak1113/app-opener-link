@@ -20,14 +20,14 @@ const pageUrl = "https://app-opener-link.vercel.app/about";
 export const metadata: Metadata = {
   title: "About AppOpen",
   description:
-    "A free smart link generator that will open URLs straight into the app (i.e. bypass the in-app browser).",
+    "A free smart link generator that will open URLs straight into the app.",
   alternates: {
     canonical: pageUrl,
   },
   openGraph: {
     title: "About AppOpen",
     description:
-      "A free smart link generator that will open URLs straight into the app (i.e. bypass the in-app browser).",
+      "A free smart link generator that will open URLs straight into the app.",
     url: pageUrl,
     type: "website",
   },
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About AppOpen",
     description:
-      "A free smart link generator that will open URLs straight into the app (i.e. bypass the in-app browser).",
+      "A free smart link generator that will open URLs straight into the app.",
   },
 };
 
@@ -45,7 +45,7 @@ export default function AboutPage() {
     "@type": "AboutPage",
     name: "About AppOpen",
     description:
-      "A free smart link generator that will open URLs straight into the app (i.e. bypass the in-app browser).",
+      "A free smart link generator that will open URLs straight into the app.",
     url: pageUrl,
     mainEntity: {
       "@type": "Person",
@@ -89,7 +89,7 @@ export default function AboutPage() {
             </h1>
 
             <p className="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-2xl mx-auto">
-              A free smart link generator that will open URLs straight into the app (i.e. bypass the in-app browser).
+              A free smart link generator that will open URLs straight into the app.
             </p>
           </header>
 
@@ -101,13 +101,13 @@ export default function AboutPage() {
                 Why I Created AppOpen
               </h2>
               <p>
-                Every time I wanted to share a YouTube video, a profile, or a product link on social media, I faced the same frustrating issue: those apps tend to trap links in their own browsers. This meant viewers were often logged out and had to go through the hassle of signing in again just to like, subscribe, or make a purchase.
+                Every time I'd want to share a YouTube video, a profile or a product link on social media we were immediately confronted with the same problem. Those apps will just trap the link in their own browser. So the viewer is then logged out and has to go through the whole process of logging in again just to like it, subscribe or make a purchase.
               </p>
               <p>
-                To solve this, I started using other app-opener tools, but I was constantly disappointed. Most of them were cluttered, filled with annoying ads, slow redirects, and created more frustration than they solved.
+                To fix this I started off with other app opener tools, but were consistently let down. Most of them were a right mess, full of irritating ads, painfully slow redirects and just generally more frustrating than they were worthwhile.
               </p>
               <p>
-                As a designer and creator, I believed there had to be a better way a tool that truly respects both the person sharing the link and the person clicking it. That’s how I came up with AppOpen: a fast, clean, and distraction-free link generator that gets the job done without unnecessary complications.
+                As a designer and creator I was convinced there had to be a better way a tool that genuinely respected both the person who was sharing the link and the person who was clicking it. That’s how Appopen came about: a fast, clean, simple link generator that does the job without all the fluff.
               </p>
             </section>
 
