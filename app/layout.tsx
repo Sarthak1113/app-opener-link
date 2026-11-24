@@ -59,6 +59,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  verification: {
+    google: "ncvgqEM7hwFy5jREhPge7TW5uDF8QbAGl0UksAsU9zA",
+  },
   category: "utilities",
 };
 
@@ -149,6 +152,7 @@ export default function RootLayout({
       className="scroll-smooth bg-slate-50 text-slate-900"
     >
       <head>
+        <meta name="google-site-verification" content="ncvgqEM7hwFy5jREhPge7TW5uDF8QbAGl0UksAsU9zA" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
