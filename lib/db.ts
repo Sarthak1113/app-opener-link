@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import os from "os";
 import { customAlphabet } from "nanoid";
 import { detectPlatform, generateDeepLinks, SupportedPlatform } from "./deeplink";
 
@@ -18,13 +19,10 @@ export interface LinkItem {
   };
 }
 
-const DATA_DIR = path.join(process.cwd(), "data");
-const DB_FILE = path.join(DATA_DIR, "links.json");
-
-function ensureDirectory() {
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
-  }
+// In-memory global store to survive warm serverless invocations
+declare global {
+  // eslint-disable-next-line no-var
+  var __APP_OPENER_DB__: Record<string, LinkItem> | undefined;
 }
 
 function getInitialSampleData(): LinkItem[] {
@@ -77,29 +75,84 @@ function getInitialSampleData(): LinkItem[] {
   ];
 }
 
+function getDbFilePath(): { readPaths: string[]; writePath: string } {
+  const localFile = path.join(process.cwd(), "data", "links.json");
+  const tmpFile = path.join(os.tmpdir(), "app_opener_links.json");
+
+  // On Vercel / AWS Lambda, process.cwd() is strictly read-only.
+  // os.tmpdir() (/tmp) is the only writable filesystem location.
+  const isServerless = Boolean(
+    process.env.VERCEL ||
+    process.env.AWS_LAMBDA_FUNCTION_NAME ||
+    process.env.LAMBDA_TASK_ROOT
+  );
+
+  return {
+    readPaths: [localFile, tmpFile],
+    writePath: isServerless ? tmpFile : localFile,
+  };
+}
+
 function readDB(): Record<string, LinkItem> {
-  ensureDirectory();
-  if (!fs.existsSync(DB_FILE)) {
-    const initialList = getInitialSampleData();
-    const map: Record<string, LinkItem> = {};
-    for (const item of initialList) {
-      map[item.id] = item;
-    }
-    fs.writeFileSync(DB_FILE, JSON.stringify(map, null, 2), "utf8");
-    return map;
+  if (globalThis.__APP_OPENER_DB__) {
+    return globalThis.__APP_OPENER_DB__;
   }
 
-  try {
-    const raw = fs.readFileSync(DB_FILE, "utf8");
-    return JSON.parse(raw);
-  } catch {
-    return {};
+  const { readPaths } = getDbFilePath();
+  const merged: Record<string, LinkItem> = {};
+
+  // Read existing data from bundled file and /tmp
+  for (const filePath of readPaths) {
+    try {
+      if (fs.existsSync(filePath)) {
+        const raw = fs.readFileSync(filePath, "utf8");
+        const parsed = JSON.parse(raw);
+        if (parsed && typeof parsed === "object") {
+          Object.assign(merged, parsed);
+        }
+      }
+    } catch {
+      // Ignore read errors
+    }
   }
+
+  // Load sample links if nothing is stored yet
+  if (Object.keys(merged).length === 0) {
+    const samples = getInitialSampleData();
+    for (const item of samples) {
+      merged[item.id] = item;
+    }
+  }
+
+  globalThis.__APP_OPENER_DB__ = merged;
+  return merged;
 }
 
 function writeDB(data: Record<string, LinkItem>) {
-  ensureDirectory();
-  fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2), "utf8");
+  // Always update in-memory store first
+  globalThis.__APP_OPENER_DB__ = data;
+
+  // Persist to disk with safe fallbacks (never throw uncaught exception)
+  const { writePath } = getDbFilePath();
+  try {
+    const dir = path.dirname(writePath);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+    fs.writeFileSync(writePath, JSON.stringify(data, null, 2), "utf8");
+  } catch (err) {
+    // If writing to the primary path failed (e.g. read-only filesystem), try /tmp
+    const tmpFile = path.join(os.tmpdir(), "app_opener_links.json");
+    if (writePath !== tmpFile) {
+      try {
+        fs.writeFileSync(tmpFile, JSON.stringify(data, null, 2), "utf8");
+        return;
+      } catch {
+        // Fallback to in-memory only
+      }
+    }
+    console.warn("Storage warning: Could not persist to disk, using in-memory store:", err);
+  }
 }
 
 export function getAllLinks(): LinkItem[] {
@@ -110,8 +163,39 @@ export function getAllLinks(): LinkItem[] {
 }
 
 export function getLinkById(id: string): LinkItem | null {
+  if (!id) return null;
   const db = readDB();
-  return db[id.toLowerCase()] || null;
+  const slug = id.toLowerCase();
+
+  // 1. Check in-memory / disk database
+  if (db[slug]) {
+    return db[slug];
+  }
+
+  // 2. Stateless base64url fallback: decode URL if slug is an encoded target
+  try {
+    const decodedUrl = Buffer.from(id, "base64url").toString("utf8");
+    if (/^https?:\/\//i.test(decodedUrl)) {
+      const platform = detectPlatform(decodedUrl);
+      const deepLinks = generateDeepLinks(decodedUrl);
+      return {
+        id,
+        originalUrl: decodedUrl,
+        platform,
+        title: deepLinks.titleSuggestion || "App Opener Link",
+        createdAt: new Date().toISOString(),
+        deepLinks: {
+          iosUrl: deepLinks.iosUrl,
+          androidIntent: deepLinks.androidIntent,
+          webFallback: deepLinks.webFallback,
+        },
+      };
+    }
+  } catch {
+    // Not a base64url encoded URL
+  }
+
+  return null;
 }
 
 export function createLink(params: {
