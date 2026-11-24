@@ -78,8 +78,8 @@ export default function AboutPage() {
             <Breadcrumbs items={[{ label: "About" }]} />
           </div>
 
-          {/* Page Header */}
-          <header className="mb-10 pb-8 border-b border-slate-200 reveal-on-scroll">
+          {/* Page Header: Center Aligned like Guides page */}
+          <header className="max-w-3xl mx-auto text-center mb-12 pb-8 border-b border-slate-200 reveal-on-scroll">
             <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 mb-3">
               <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
               <span>About AppOpen</span>
@@ -89,7 +89,7 @@ export default function AboutPage() {
               About AppOpen: Making Link Sharing Easy Again
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
+            <p className="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-2xl mx-auto">
               AppOpen is a free and simple smart link generator that transforms regular web URLs into direct links that open your favorite apps. So when someone clicks your link on Instagram, Facebook, X, or WhatsApp, they’ll go straight to the app instead of getting stuck in an awkward in-app browser.
             </p>
           </header>
@@ -112,10 +112,10 @@ export default function AboutPage() {
               </p>
             </section>
 
-            {/* What AppOpen Represents */}
+            {/* What AppOpen Represents? */}
             <section className="space-y-5 pt-4 border-t border-slate-200 reveal-on-scroll">
               <h2 className="text-2xl font-bold tracking-tight text-slate-900 font-heading">
-                What AppOpen Represents
+                What AppOpen Represents?
               </h2>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 not-prose">
@@ -139,13 +139,13 @@ export default function AboutPage() {
                     </h3>
                   </div>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    Automatically detects whether the user is on iOS, Android, or desktop and opens links in the right app like YouTube, Instagram, Amazon, Spotify, Telegram, or X. If the app isn’t installed, it seamlessly falls back to the browser.
+                    Automatically detects iOS, Android, or desktop and opens links in the right app, with a seamless browser fallback if the app isn't installed.
                   </p>
                 </div>
 
                 <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-xs">
                   <div className="flex items-center gap-2 mb-2 text-blue-600">
-                    <Zap className="h-4 w-4" aria-hidden="true" />
+                    <Zap className="h-4 w-4 fill-current" aria-hidden="true" />
                     <h3 className="font-bold text-slate-900 text-sm font-heading">
                       No Sign-up Required
                     </h3>
@@ -189,7 +189,7 @@ export default function AboutPage() {
                   className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-xs font-semibold text-slate-700 hover:text-blue-600 hover:border-blue-300 transition-colors shadow-2xs"
                 >
                   <Globe className="h-4 w-4 text-blue-600" aria-hidden="true" />
-                  <span>Portfolio: sarthakranjanhota.site</span>
+                  <span>Portfolio</span>
                   <ExternalLink className="h-3 w-3 text-slate-400" aria-hidden="true" />
                 </a>
 
@@ -200,14 +200,10 @@ export default function AboutPage() {
                   className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-xs font-semibold text-slate-700 hover:text-blue-600 hover:border-blue-300 transition-colors shadow-2xs"
                 >
                   <Linkedin className="h-4 w-4 text-blue-600" aria-hidden="true" />
-                  <span>LinkedIn: linkedin.com/in/sarthak-ranjan-hota</span>
+                  <span>Linkedin</span>
                   <ExternalLink className="h-3 w-3 text-slate-400" aria-hidden="true" />
                 </a>
               </div>
-
-              <p>
-                Got feedback, a bug to report, or a platform you’d like to see supported? Don’t hesitate to reach out—I’m always looking to improve AppOpen based on your thoughts.
-              </p>
             </section>
 
             {/* Try AppOpen Now */}
