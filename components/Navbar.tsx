@@ -43,12 +43,6 @@ export function Navbar() {
           >
             Guides
           </Link>
-          <Link
-            href="/about"
-            className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
-          >
-            About
-          </Link>
           <a
             href="/#faq"
             className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
@@ -115,13 +109,6 @@ export function Navbar() {
               className="flex min-h-[44px] items-center px-3 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600 rounded-lg transition-colors"
             >
               Guides
-            </Link>
-            <Link
-              href="/about"
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex min-h-[44px] items-center px-3 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600 rounded-lg transition-colors"
-            >
-              About
             </Link>
             <a
               href="/#faq"

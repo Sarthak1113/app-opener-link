@@ -95,10 +95,10 @@ export default function AboutPage() {
 
           {/* Body Content */}
           <div className="prose prose-slate max-w-none space-y-10 text-slate-700 leading-relaxed">
-            {/* Why I Created AppOpen */}
+            {/* Why I Created AppOpen? */}
             <section className="space-y-4 reveal-on-scroll">
               <h2 className="text-2xl font-bold tracking-tight text-slate-900 font-heading">
-                Why I Created AppOpen
+                Why I Created AppOpen?
               </h2>
               <p>
                 Every time I'd want to share a YouTube video, a profile or a product link on social media we were immediately confronted with the same problem. Those apps will just trap the link in their own browser. So the viewer is then logged out and has to go through the whole process of logging in again just to like it, subscribe or make a purchase.
