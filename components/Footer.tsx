@@ -35,9 +35,6 @@ export function Footer() {
             <a href="/#use-cases" className="hover:text-blue-600 transition-colors">
               Use cases
             </a>
-            <a href="/#links" className="hover:text-blue-600 transition-colors">
-              Recent links
-            </a>
             <a href="/#faq" className="hover:text-blue-600 transition-colors">
               FAQ
             </a>

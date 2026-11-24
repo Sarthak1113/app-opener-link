@@ -9,7 +9,7 @@ import {
   Clipboard,
   X,
 } from "lucide-react";
-import { detectPlatform, PLATFORMS } from "@/lib/deeplink";
+import { detectPlatform, isValidWebUrl, PLATFORMS } from "@/lib/deeplink";
 import { PlatformBadge } from "./PlatformBadge";
 import { LinkItem } from "@/lib/db";
 import { LinkSuccessModal } from "./LinkSuccessModal";
@@ -49,6 +49,11 @@ export function LinkCreator({ onLinkCreated }: LinkCreatorProps) {
     const trimmedUrl = url.trim();
     if (!trimmedUrl) {
       setErrorMessage("Enter a destination web URL to generate an opener link.");
+      return;
+    }
+
+    if (!isValidWebUrl(trimmedUrl)) {
+      setErrorMessage("Please enter a valid website or app destination URL (e.g. youtube.com/watch?v=... or instagram.com/...).");
       return;
     }
 
@@ -179,8 +184,8 @@ export function LinkCreator({ onLinkCreated }: LinkCreatorProps) {
                 </button>
               </div>
 
-              {/* Detected Platform Indicator */}
-              {url.trim() && (
+              {/* Detected Platform Indicator (only show when valid URL is entered) */}
+              {isValidWebUrl(url.trim()) && (
                 <div className="mt-2.5 flex items-center justify-between text-xs px-1">
                   <div className="flex items-center gap-2">
                     <span className="text-slate-500">Target platform:</span>

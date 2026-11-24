@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import os from "os";
 import { customAlphabet } from "nanoid";
-import { detectPlatform, generateDeepLinks, SupportedPlatform } from "./deeplink";
+import { detectPlatform, generateDeepLinks, isValidWebUrl, SupportedPlatform } from "./deeplink";
 
 const nanoid = customAlphabet("23456789abcdefghijkmnopqrstuvwxyz", 6);
 
@@ -206,6 +206,13 @@ export function createLink(params: {
   url = url.trim();
   if (!url) {
     return { success: false, error: "URL is required." };
+  }
+
+  if (!isValidWebUrl(url)) {
+    return {
+      success: false,
+      error: "Please enter a valid website or app destination URL (e.g. youtube.com or instagram.com).",
+    };
   }
 
   if (!/^https?:\/\//i.test(url)) {

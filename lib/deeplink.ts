@@ -155,9 +155,55 @@ export interface DeepLinkResult {
 }
 
 /**
+ * Validate that a raw string is a real, valid destination URL with a domain.
+ * Rejects invalid strings without dots/domains (e.g. "DDDD", "test", "hello").
+ */
+export function isValidWebUrl(rawUrl: string): boolean {
+  if (!rawUrl || typeof rawUrl !== "string") return false;
+  const trimmed = rawUrl.trim();
+  if (trimmed.length < 4) return false;
+
+  let urlToTest = trimmed;
+  if (!/^https?:\/\//i.test(urlToTest)) {
+    urlToTest = `https://${urlToTest}`;
+  }
+
+  try {
+    const parsed = new URL(urlToTest);
+    if (!["http:", "https:"].includes(parsed.protocol)) {
+      return false;
+    }
+
+    const host = parsed.hostname.toLowerCase();
+    // Must contain at least one dot (e.g. domain.tld)
+    if (!host.includes(".")) {
+      return false;
+    }
+
+    // Must not start or end with a dot or hyphen
+    if (host.startsWith(".") || host.endsWith(".") || host.startsWith("-") || host.endsWith("-")) {
+      return false;
+    }
+
+    // TLD must be at least 2 characters or standard numeric for IP
+    const parts = host.split(".");
+    const tld = parts[parts.length - 1];
+    if (!/^[a-z]{2,}$/i.test(tld) && !/^\d+$/.test(tld)) {
+      return false;
+    }
+
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
  * Detect platform from raw URL
  */
 export function detectPlatform(rawUrl: string): SupportedPlatform {
+  if (!isValidWebUrl(rawUrl)) return "generic";
+
   try {
     const url = new URL(rawUrl.startsWith("http") ? rawUrl : `https://${rawUrl}`);
     const host = url.hostname.toLowerCase().replace(/^www\./, "");
