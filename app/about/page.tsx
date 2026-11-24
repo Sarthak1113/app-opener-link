@@ -8,7 +8,6 @@ import { ScrollRevealObserver } from "@/components/ScrollRevealObserver";
 import {
   Zap,
   ArrowRight,
-  ExternalLink,
   Sparkles,
   ShieldCheck,
   Smartphone,
@@ -19,24 +18,24 @@ import {
 const pageUrl = "https://app-opener-link.vercel.app/about";
 
 export const metadata: Metadata = {
-  title: "About AppOpen: Making Link Sharing Easy Again",
+  title: "About AppOpen",
   description:
-    "Learn why AppOpen was built: a fast, clean, distraction-free smart link generator that bypasses in-app browser login walls and opens native apps directly.",
+    "A free smart link generator that will open URLs straight into the app (i.e. bypass the in-app browser).",
   alternates: {
     canonical: pageUrl,
   },
   openGraph: {
-    title: "About AppOpen: Making Link Sharing Easy Again",
+    title: "About AppOpen",
     description:
-      "Learn why AppOpen was built: a fast, clean, distraction-free smart link generator that bypasses in-app browser login walls and opens native apps directly.",
+      "A free smart link generator that will open URLs straight into the app (i.e. bypass the in-app browser).",
     url: pageUrl,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "About AppOpen: Making Link Sharing Easy Again",
+    title: "About AppOpen",
     description:
-      "Learn why AppOpen was built: a fast, clean, distraction-free smart link generator that bypasses in-app browser login walls and opens native apps directly.",
+      "A free smart link generator that will open URLs straight into the app (i.e. bypass the in-app browser).",
   },
 };
 
@@ -44,9 +43,9 @@ export default function AboutPage() {
   const aboutPageSchema = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    name: "About AppOpen: Making Link Sharing Easy Again",
+    name: "About AppOpen",
     description:
-      "AppOpen is a free and simple smart link generator that transforms regular web URLs into direct links that open your favorite apps.",
+      "A free smart link generator that will open URLs straight into the app (i.e. bypass the in-app browser).",
     url: pageUrl,
     mainEntity: {
       "@type": "Person",
@@ -86,11 +85,11 @@ export default function AboutPage() {
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 font-heading leading-tight mb-4">
-              About AppOpen: Making Link Sharing Easy Again
+              About AppOpen
             </h1>
 
             <p className="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-2xl mx-auto">
-              AppOpen is a free and simple smart link generator that transforms regular web URLs into direct links that open your favorite apps. So when someone clicks your link on Instagram, Facebook, X, or WhatsApp, they’ll go straight to the app instead of getting stuck in an awkward in-app browser.
+              A free smart link generator that will open URLs straight into the app (i.e. bypass the in-app browser).
             </p>
           </header>
 
@@ -190,7 +189,6 @@ export default function AboutPage() {
                 >
                   <Globe className="h-4 w-4 text-blue-600" aria-hidden="true" />
                   <span>Portfolio</span>
-                  <ExternalLink className="h-3 w-3 text-slate-400" aria-hidden="true" />
                 </a>
 
                 <a
@@ -201,7 +199,6 @@ export default function AboutPage() {
                 >
                   <Linkedin className="h-4 w-4 text-blue-600" aria-hidden="true" />
                   <span>Linkedin</span>
-                  <ExternalLink className="h-3 w-3 text-slate-400" aria-hidden="true" />
                 </a>
               </div>
             </section>
