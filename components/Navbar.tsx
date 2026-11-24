@@ -26,19 +26,25 @@ export function Navbar() {
         {/* Desktop Navigation */}
         <nav aria-label="Main" className="hidden md:flex items-center gap-8">
           <a
-            href="#how-it-works"
+            href="/#how-it-works"
             className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
           >
             How it works
           </a>
           <a
-            href="#use-cases"
+            href="/#use-cases"
             className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
           >
             Use cases
           </a>
+          <Link
+            href="/guides"
+            className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
+          >
+            Guides
+          </Link>
           <a
-            href="#faq"
+            href="/#faq"
             className="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors"
           >
             FAQ
@@ -48,7 +54,7 @@ export function Navbar() {
         {/* Primary Action Button */}
         <div className="hidden sm:flex items-center gap-3">
           <a
-            href="#generator"
+            href="/#generator"
             className="inline-flex min-h-[38px] items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-xs font-semibold text-white shadow-xs hover:bg-blue-700 transition-[transform,background-color] duration-150 ease-out focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white enabled:active:scale-[0.96]"
           >
             Create link
@@ -84,21 +90,28 @@ export function Navbar() {
             className="bg-white px-4 py-3 space-y-1"
           >
             <a
-              href="#how-it-works"
+              href="/#how-it-works"
               onClick={() => setMobileMenuOpen(false)}
               className="flex min-h-[44px] items-center px-3 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600 rounded-lg transition-colors"
             >
               How it works
             </a>
             <a
-              href="#use-cases"
+              href="/#use-cases"
               onClick={() => setMobileMenuOpen(false)}
               className="flex min-h-[44px] items-center px-3 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600 rounded-lg transition-colors"
             >
               Use cases
             </a>
+            <Link
+              href="/guides"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex min-h-[44px] items-center px-3 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600 rounded-lg transition-colors"
+            >
+              Guides
+            </Link>
             <a
-              href="#faq"
+              href="/#faq"
               onClick={() => setMobileMenuOpen(false)}
               className="flex min-h-[44px] items-center px-3 text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-blue-600 rounded-lg transition-colors"
             >
@@ -106,7 +119,7 @@ export function Navbar() {
             </a>
             <div className="pt-2 pb-1 sm:hidden">
               <a
-                href="#generator"
+                href="/#generator"
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex min-h-[42px] items-center justify-center rounded-lg bg-blue-600 px-4 py-2 text-xs font-semibold text-white shadow-xs hover:bg-blue-700 enabled:active:scale-[0.96] transition-all"
               >
