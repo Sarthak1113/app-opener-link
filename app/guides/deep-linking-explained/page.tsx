@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { GuideFAQ } from "@/components/GuideFAQ";
+import { ScrollRevealObserver } from "@/components/ScrollRevealObserver";
 import {
   Calendar,
   Clock,
@@ -116,6 +117,7 @@ export default function DeepLinkingExplainedPage() {
       />
 
       <Navbar />
+      <ScrollRevealObserver />
 
       <main id="main-content" className="flex-1 py-10 sm:py-16">
         <article className="mx-auto max-w-4xl px-4 sm:px-6">
@@ -130,7 +132,7 @@ export default function DeepLinkingExplainedPage() {
           </div>
 
           {/* Article Header */}
-          <header className="mb-10 pb-8 border-b border-slate-200">
+          <header className="mb-10 pb-8 border-b border-slate-200 reveal-on-scroll">
             <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 mb-3">
               <div className="flex items-center gap-1.5 font-medium">
                 <Calendar className="h-3.5 w-3.5 text-slate-400" aria-hidden="true" />
@@ -167,7 +169,7 @@ export default function DeepLinkingExplainedPage() {
           {/* Article Body Content */}
           <div className="prose prose-slate max-w-none space-y-8 text-slate-700 leading-relaxed">
             {/* Introduction Section */}
-            <section className="space-y-4">
+            <section className="space-y-4 reveal-on-scroll">
               <h2 className="text-2xl font-bold tracking-tight text-slate-900 font-heading">
                 Introduction
               </h2>
@@ -180,7 +182,7 @@ export default function DeepLinkingExplainedPage() {
             </section>
 
             {/* What is a deep link */}
-            <section className="space-y-4 pt-4 border-t border-slate-200">
+            <section className="space-y-4 pt-4 border-t border-slate-200 reveal-on-scroll">
               <h2 className="text-2xl font-bold tracking-tight text-slate-900 font-heading">
                 What is a deep link?
               </h2>
@@ -193,7 +195,7 @@ export default function DeepLinkingExplainedPage() {
             </section>
 
             {/* How does deep linking work */}
-            <section className="space-y-4 pt-4 border-t border-slate-200">
+            <section className="space-y-4 pt-4 border-t border-slate-200 reveal-on-scroll">
               <h2 className="text-2xl font-bold tracking-tight text-slate-900 font-heading">
                 How does deep linking work?
               </h2>
@@ -219,7 +221,7 @@ export default function DeepLinkingExplainedPage() {
             </section>
 
             {/* Common types of mobile deep links */}
-            <section className="space-y-6 pt-4 border-t border-slate-200">
+            <section className="space-y-6 pt-4 border-t border-slate-200 reveal-on-scroll">
               <h2 className="text-2xl font-bold tracking-tight text-slate-900 font-heading">
                 Common types of mobile deep links
               </h2>
@@ -256,7 +258,7 @@ export default function DeepLinkingExplainedPage() {
             </section>
 
             {/* Deep links vs. normal links Table */}
-            <section className="space-y-4 pt-4 border-t border-slate-200">
+            <section className="space-y-4 pt-4 border-t border-slate-200 reveal-on-scroll">
               <h2 className="text-2xl font-bold tracking-tight text-slate-900 font-heading">
                 Deep links vs. normal links
               </h2>
@@ -296,7 +298,7 @@ export default function DeepLinkingExplainedPage() {
             </section>
 
             {/* When should you use deep links */}
-            <section className="space-y-4 pt-4 border-t border-slate-200">
+            <section className="space-y-4 pt-4 border-t border-slate-200 reveal-on-scroll">
               <h2 className="text-2xl font-bold tracking-tight text-slate-900 font-heading">
                 When should you use deep links?
               </h2>
@@ -311,7 +313,7 @@ export default function DeepLinkingExplainedPage() {
             </section>
 
             {/* In-Content Funnel / Action Box */}
-            <div className="not-prose my-8 rounded-2xl border border-blue-200 bg-blue-50/60 p-6 sm:p-7 shadow-xs">
+            <div className="reveal-on-scroll not-prose my-8 rounded-2xl border border-blue-200 bg-blue-50/60 p-6 sm:p-7 shadow-xs">
               <div className="flex items-center gap-2 text-blue-700 text-xs font-bold uppercase tracking-wider mb-2">
                 <Zap className="h-4 w-4 fill-current" aria-hidden="true" />
                 <span>Instant Link Generator</span>
@@ -332,7 +334,7 @@ export default function DeepLinkingExplainedPage() {
             </div>
 
             {/* How to make a link open in an app */}
-            <section className="space-y-4 pt-4 border-t border-slate-200">
+            <section className="space-y-4 pt-4 border-t border-slate-200 reveal-on-scroll">
               <h2 className="text-2xl font-bold tracking-tight text-slate-900 font-heading">
                 How to make a link open in an app
               </h2>
@@ -348,7 +350,7 @@ export default function DeepLinkingExplainedPage() {
             </section>
 
             {/* Best practices */}
-            <section className="space-y-4 pt-4 border-t border-slate-200">
+            <section className="space-y-4 pt-4 border-t border-slate-200 reveal-on-scroll">
               <h2 className="text-2xl font-bold tracking-tight text-slate-900 font-heading">
                 Best practices
               </h2>
@@ -364,7 +366,7 @@ export default function DeepLinkingExplainedPage() {
             </section>
 
             {/* Frequently asked questions */}
-            <section className="space-y-5 pt-4 border-t border-slate-200">
+            <section className="space-y-5 pt-4 border-t border-slate-200 reveal-on-scroll">
               <h2 className="text-2xl font-bold tracking-tight text-slate-900 font-heading">
                 Frequently asked questions
               </h2>
@@ -373,7 +375,7 @@ export default function DeepLinkingExplainedPage() {
             </section>
 
             {/* Conclusion */}
-            <section className="space-y-4 pt-6 border-t border-slate-200">
+            <section className="space-y-4 pt-6 border-t border-slate-200 reveal-on-scroll">
               <h2 className="text-2xl font-bold tracking-tight text-slate-900 font-heading">
                 Conclusion
               </h2>
@@ -383,7 +385,7 @@ export default function DeepLinkingExplainedPage() {
             </section>
 
             {/* High-Intent Conversion Funnel Box */}
-            <div className="mt-12 rounded-2xl border border-blue-200 bg-gradient-to-br from-blue-50/80 via-white to-blue-50/40 p-6 sm:p-8 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 not-prose">
+            <div className="reveal-on-scroll mt-12 rounded-2xl border border-blue-200 bg-gradient-to-br from-blue-50/80 via-white to-blue-50/40 p-6 sm:p-8 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 not-prose">
               <div className="max-w-xl">
                 <div className="flex items-center gap-2 mb-2 text-blue-700 text-xs font-bold uppercase tracking-wider">
                   <Zap className="h-4 w-4 fill-current" aria-hidden="true" />

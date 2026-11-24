@@ -6,7 +6,7 @@ const siteUrl = "https://app-opener-link.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "AppOpener — Smart App-Opening Links & Native Deep Link Generator",
+    default: "AppOpener - One link. The right app. Every time.",
     template: "%s | AppOpener",
   },
   description:
@@ -33,8 +33,15 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteUrl,
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
   openGraph: {
-    title: "AppOpener — One link. The right app. Every time.",
+    title: "AppOpener - One link. The right app. Every time.",
     description:
       "Generate smart universal links and QR codes that bypass in-app browsers and launch native mobile apps directly.",
     url: siteUrl,
@@ -44,7 +51,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AppOpener — One link. The right app. Every time.",
+    title: "AppOpener - One link. The right app. Every time.",
     description:
       "Generate smart universal links and QR codes that bypass in-app browsers and launch native mobile apps directly.",
   },
@@ -153,6 +160,9 @@ export default function RootLayout({
     >
       <head>
         <meta name="google-site-verification" content="ncvgqEM7hwFy5jREhPge7TW5uDF8QbAGl0UksAsU9zA" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

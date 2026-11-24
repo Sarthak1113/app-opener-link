@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { ScrollRevealObserver } from "@/components/ScrollRevealObserver";
 import { ArrowRight, BookOpen, Clock, Calendar, Zap } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -55,6 +56,7 @@ const GUIDES: GuideItem[] = [
 export default function GuidesIndexPage() {
   return (
     <div className="min-h-[100dvh] flex flex-col bg-slate-50 text-slate-900 font-sans">
+      <ScrollRevealObserver />
       <Navbar />
 
       <main id="main-content" className="flex-1 py-10 sm:py-16">
@@ -65,7 +67,7 @@ export default function GuidesIndexPage() {
           </div>
 
           {/* Section Header: Centered */}
-          <div className="max-w-3xl mx-auto text-center mb-12">
+          <div className="max-w-3xl mx-auto text-center mb-12 reveal-on-scroll">
             <div className="inline-flex items-center gap-1.5 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 mb-3">
               <BookOpen className="h-3.5 w-3.5" aria-hidden="true" />
               <span>Knowledge Base &amp; Tutorials</span>
@@ -80,10 +82,10 @@ export default function GuidesIndexPage() {
 
           {/* Featured Guide List */}
           <div className="space-y-6 mb-16">
-            {GUIDES.map((guide) => (
+            {GUIDES.map((guide, idx) => (
               <article
                 key={guide.slug}
-                className="group relative rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-xs hover:border-blue-400 hover:shadow-md transition-all duration-200"
+                className={`reveal-on-scroll ${idx === 0 ? "stagger-1" : "stagger-2"} group relative rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 shadow-xs hover:border-blue-400 hover:shadow-md transition-all duration-200`}
               >
                 <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500 mb-3">
                   <div className="flex items-center gap-1.5 font-medium">
@@ -128,7 +130,7 @@ export default function GuidesIndexPage() {
           </div>
 
           {/* High-Intent Conversion Funnel Box */}
-          <div className="rounded-2xl border border-blue-200 bg-gradient-to-br from-blue-50/80 via-white to-blue-50/40 p-6 sm:p-8 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div className="reveal-on-scroll stagger-3 rounded-2xl border border-blue-200 bg-gradient-to-br from-blue-50/80 via-white to-blue-50/40 p-6 sm:p-8 shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div className="max-w-xl">
               <div className="flex items-center gap-2 mb-2 text-blue-700 text-xs font-bold uppercase tracking-wider">
                 <Zap className="h-4 w-4 fill-current" aria-hidden="true" />
