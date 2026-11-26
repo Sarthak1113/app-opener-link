@@ -8,18 +8,26 @@ import { ScrollRevealObserver } from "@/components/ScrollRevealObserver";
 import { ArrowRight, BookOpen, Clock, Calendar, Zap } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Mobile Deep Linking & Smart Redirect Guides — AppOpener",
+  title: {
+    absolute: "AppOpener | Link Guides for Creators",
+  },
   description:
-    "Explore in-depth technical guides, tutorials, and best practices for mobile deep linking, bypassing in-app browsers, and creating high-converting smart URLs.",
+    "Learn how to use app opener links to boost views and engagement.",
   alternates: {
     canonical: "https://app-opener-link.vercel.app/guides",
   },
   openGraph: {
-    title: "Mobile Deep Linking & Smart Redirect Guides — AppOpener",
+    title: "AppOpener | Link Guides for Creators",
     description:
-      "Explore in-depth technical guides, tutorials, and best practices for mobile deep linking, bypassing in-app browsers, and creating high-converting smart URLs.",
+      "Learn how to use app opener links to boost views and engagement.",
     url: "https://app-opener-link.vercel.app/guides",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AppOpener | Link Guides for Creators",
+    description:
+      "Learn how to use app opener links to boost views and engagement.",
   },
 };
 

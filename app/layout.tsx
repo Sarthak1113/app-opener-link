@@ -6,7 +6,7 @@ const siteUrl = "https://app-opener-link.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "AppOpener - One link. The right app. Every time.",
+    default: "AppOpener - Free Tool to Open Links in Apps",
     template: "%s | AppOpener",
   },
   description:
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "AppOpener - One link. The right app. Every time.",
+    title: "AppOpener - Free Tool to Open Links in Apps",
     description:
       "Generate smart universal links and QR codes that bypass in-app browsers and launch native mobile apps directly.",
     url: siteUrl,
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AppOpener - One link. The right app. Every time.",
+    title: "AppOpener - Free Tool to Open Links in Apps",
     description:
       "Generate smart universal links and QR codes that bypass in-app browsers and launch native mobile apps directly.",
   },

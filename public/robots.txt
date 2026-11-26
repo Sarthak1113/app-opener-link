@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Allow AI Search & Live User Fetchers
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Googlebot
+User-agent: Applebot
+User-agent: Meta-ExternalFetcher
+User-agent: MistralAI-User
+Allow: /
+Disallow: /api/
+
+# Block AI Training Crawlers
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Meta-ExternalAgent
+User-agent: CCBot
+User-agent: Bytespider
+Disallow: /
+
+Sitemap: https://app-opener-link.vercel.app/sitemap.xml
